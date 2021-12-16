@@ -34,6 +34,13 @@ export const todoSlice = createSlice({
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload.id)
       };
+    },
+    completeTodo: (state, action: PayloadAction<Pick<Todo, 'id'>>) => {
+      //更新のみの場合はretuenしない
+      const todo = state.todos.find((todo) => todo.id === action.payload.id);
+      if(todo) {
+        todo.check = !todo.check;
+      }
     }
   }
 });
