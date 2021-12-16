@@ -1,7 +1,7 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 import React from 'react';
 import { useState, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { todoSelector } from '../modules/selector';
 import { Todo, todoSlice } from '../modules/slice/todos';
 import styles from '../styles/Home.module.css';
@@ -15,13 +15,13 @@ const Home: NextPage = () => {
     setTitleName(event.target.value);
   }, []);
   const clickButton = () => {
-    dispatch(addTodo({title: newTitleName}))
+    dispatch(addTodo({title: newTitleName}));
   };
   console.log(todos);
 
   const deleteButton = (id: Todo['id']) => {
-    dispatch(deleteTodo({ id: id }))
-  }
+    dispatch(deleteTodo({ id: id }));
+  };
 
   return (
     <div className={styles.container}>
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

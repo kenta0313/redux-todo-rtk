@@ -23,7 +23,7 @@ export const todoSlice = createSlice({
         id: state.todos.length > 0 ?  state.todos.reduce((a,b) => a.id > b.id ? a : b).id + 1 : 1,
         title: action.payload.title,
         check: false
-      }
+      };
       return {
         ...state,
         todos: [...state.todos, newTodo]
@@ -33,7 +33,7 @@ export const todoSlice = createSlice({
       return {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload.id)
-      }
+      };
     }
   }
 });
