@@ -3,21 +3,25 @@ import React from 'react';
 import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { todoSelector } from '../modules/selector';
-import { todoSlice } from '../modules/slice/todos';
+import { Todo, todoSlice } from '../modules/slice/todos';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   const [newTitleName, setTitleName] = useState("");
   const dispatch = useDispatch();
   const todos = useSelector(todoSelector);
-  const { addTodo } = todoSlice.actions;
+  const { addTodo, deleteTodo } = todoSlice.actions;
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setTitleName(event.target.value);
   }, []);
   const clickButton = () => {
-    dispatch(addTodo(newTitleName))
+    dispatch(addTodo({title: newTitleName}))
   };
   console.log(todos);
+
+  const deleteButton = (id: Todo['id']) => {
+    dispatch(deleteTodo({ id: id }))
+  }
 
   return (
     <div className={styles.container}>
@@ -26,6 +30,7 @@ const Home: NextPage = () => {
       {todos.map((todo) => (
         <div key={todo.id}>
           <h3>{todo.title}</h3>
+          <button onClick={() => deleteButton(todo.id)}>☓</button>
         </div>
       ))}
     </div>
