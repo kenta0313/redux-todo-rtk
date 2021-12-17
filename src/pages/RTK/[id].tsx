@@ -6,7 +6,7 @@ import { skipToken } from '@reduxjs/toolkit/dist/query';
 const RTK = () => {
   const router = useRouter();
   const user = router.query;
-  const { data, error, isFetching } = useGetUserQuery(user.id);
+  const { data, error, isFetching } = useGetUserQuery(user.id ?? skipToken);
 
   return (
     <div>

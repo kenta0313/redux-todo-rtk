@@ -13,8 +13,8 @@ export const userApi = createApi({
     getUsers: builder.query<Users, void>({
       query: () => 'users',
     }),
-    getUser: builder.query<User, any>({
-      query: (userID: any) => `users/${userID}`,
+    getUser: builder.query<User, string | string[]>({
+      query: (userID: string) => `users/${userID}`,
     })
   })
 });
