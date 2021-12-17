@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type Todo = {
-  id: number;
-  title: string;
-  check: boolean;
+  readonly id: number;
+  readonly title: string;
+  readonly check: boolean;
 };
 
 type Todos = {
-  todos: Todo[];
+  readonly todos: Todo[];
 };
 
 const initialState: Todos = {
