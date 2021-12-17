@@ -10,9 +10,12 @@ const RTK = () => {
 
   return (
     <div>
-      {error && <div>エラー</div>}
-      {isFetching  && <div>ロード</div>}
-      <h3>{data?.name}</h3>
+      {error ? (
+        <div>エラー</div>
+      ) : isFetching ? (
+        <div>ロード中</div>
+      ) : data ? <div>{data.name}</div>
+      : <div>データなし</div>}
     </div>
   );
 };
