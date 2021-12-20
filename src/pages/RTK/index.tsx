@@ -5,10 +5,16 @@ import { useGetUsersQuery } from '../../modules/api';
 const RTK = () => {
   const { data, error, isFetching } = useGetUsersQuery();
 
+  if(isFetching) {
+    <div>ロード中</div>;
+  }
+
+  if(error) {
+    <div>エラー</div>;
+  }
+
   return (
     <div>
-      {error && <div>エラー</div>}
-      {isFetching  && <div>ロード</div>}
       {data&& data.map((user, id) => (
       <div key={id}>
         <Link

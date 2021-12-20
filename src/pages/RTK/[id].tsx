@@ -8,14 +8,17 @@ const RTK = () => {
   const user = router.query;
   const { data, error, isFetching } = useGetUserQuery(user.id ?? skipToken);
 
+  if(isFetching && !data) {
+    <div>ロード中</div>;
+  }
+
+  if(error) {
+    <div>エラー</div>;
+  }
+
   return (
     <div>
-      {error ? (
-        <div>エラー</div>
-      ) : isFetching ? (
-        <div>ロード中</div>
-      ) : data ? <div>{data.name}</div>
-      : <div>データなし</div>}
+      <div>{data && data.name}</div>
     </div>
   );
 };
