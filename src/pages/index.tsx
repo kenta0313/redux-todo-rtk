@@ -26,8 +26,6 @@ const Home: NextPage = () => {
   const completeButton = (id: Todo['id']) => {
     dispatch(completeTodo({ id: id }));
   };
-  console.log(todos);
-
 
   return (
     <div className={styles.container}>
