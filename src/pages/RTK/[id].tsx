@@ -9,11 +9,15 @@ const RTK = () => {
   const { data, error, isFetching } = useGetUserQuery(user.id ?? skipToken);
 
   if(isFetching && !data) {
-    <div>ロード中</div>;
+    return (
+      <div>ロード中</div>
+    );
   }
 
   if(error) {
-    <div>エラー</div>;
+    return (
+      <div>エラー</div>
+    );
   }
 
   return (
