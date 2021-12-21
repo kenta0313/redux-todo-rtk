@@ -5,12 +5,16 @@ import { useGetUsersQuery } from '../../modules/api';
 const RTK = () => {
   const { data, error, isFetching } = useGetUsersQuery();
 
-  if(isFetching) {
-    <div>ロード中</div>;
+  if(isFetching && !data) {
+    return (
+      <div>ロード中</div>
+    );
   }
 
   if(error) {
-    <div>エラー</div>;
+    return (
+      <div>エラー</div>
+    );
   }
 
   return (
