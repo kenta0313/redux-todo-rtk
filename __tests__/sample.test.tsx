@@ -10,5 +10,6 @@ it('Should render hello text', () => {
       <Home />
     </Provider>
   );
+  screen.debug();
   expect(screen.getByText('Hello Nextjs')).toBeInTheDocument();
 });
