@@ -4,7 +4,6 @@ import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { todoSelector } from '../modules/selector';
 import { Todo, todoSlice } from '../modules/slice/todos';
-import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   const [newTitleName, setTitleName] = useState("");
@@ -28,7 +27,8 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div>
+      <div>Hello Nextjs</div>
       <input type="text" value={newTitleName} onChange={handleChange} />
       <button type="button" onClick={clickButton}>送信</button>
       {todos.map((todo) => (
