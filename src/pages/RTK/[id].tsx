@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/router";
 import { useGetUserQuery } from '../../modules/api';
 import { skipToken } from '@reduxjs/toolkit/dist/query';
