@@ -29,14 +29,14 @@ const Home: NextPage = () => {
   return (
     <div>
       <div>Hello Nextjs</div>
-      <input type="text" value={newTitleName} onChange={handleChange} />
+      <input type="text" aria-label='text' value={newTitleName} onChange={handleChange} />
       <button type="button" onClick={clickButton}>送信</button>
       {todos.map((todo) => (
         <div key={todo.id}>
           {todo.check ?
-            <h3>{todo.title}</h3>
-          :
             <>完了です</>
+          :
+            <h3>{todo.title}</h3>
           }
           <button onClick={() => completeButton(todo.id)}>完了</button>
           <button onClick={() => deleteButton(todo.id)}>☓</button>
