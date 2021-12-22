@@ -20,6 +20,7 @@ it('Should render hello text', () => {
   expect(input.value).toBe("");
   screen.debug();
   expect(screen.getByText(/hoge/)).toBeInTheDocument();
+  expect(screen.getAllByText(/hoge/)).toHaveLength(1);
   const completebutton = screen.getByText(/完了/);
   userEvent.click(completebutton);
   expect(screen.getByText('完了です')).toBeInTheDocument();
