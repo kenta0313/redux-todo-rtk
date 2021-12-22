@@ -12,7 +12,7 @@ it('Should render hello text', () => {
     </Provider>
   );
   expect(screen.getByText('Hello Nextjs')).toBeInTheDocument();
-  const input = screen.getByRole("textbox") as HTMLInputElement;
+  const input: HTMLInputElement = screen.getByRole("textbox");
   const button = screen.getByText(/送信/);
   userEvent.type(input, 'hoge');
   expect(button).not.toBeDisabled();
