@@ -1,4 +1,4 @@
-import { getByText, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Home from '../src/pages/index';
 import { Provider } from 'react-redux';
@@ -41,7 +41,7 @@ it('Todo function test', () => {
   expect(newTodo?.title).toBe('sample');
   expect(newTodo?.check).toBe(false);
   expect(newTodo?.id).toBe(unchangedTodo && unchangedTodo.id + 1);
-  
+
   //objectの場合はtoEqualを使用
   expect(newTodo).toEqual({
     title: 'sample',
